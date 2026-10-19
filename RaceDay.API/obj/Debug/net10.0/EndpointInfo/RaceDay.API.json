@@ -5,6 +5,18 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/antiforgery/token": {
+      "get": {
+        "tags": [
+          "Antiforgery"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/auth/register": {
       "post": {
         "tags": [
@@ -374,6 +386,9 @@
     }
   },
   "tags": [
+    {
+      "name": "Antiforgery"
+    },
     {
       "name": "Auth"
     },

@@ -1,5 +1,15 @@
 [
   {
+    "ContainingType": "RaceDay.API.Controllers.AntiforgeryController",
+    "Method": "GetToken",
+    "RelativePath": "api/antiforgery/token",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "RaceDay.API.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/auth/login",
