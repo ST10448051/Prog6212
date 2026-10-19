@@ -299,6 +299,43 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "RaceDay.API.Controllers.RoutesController",
+    "Method": "GetEventRoutes",
+    "RelativePath": "api/events/{eventId}/routes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "eventId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RaceDay.API.Controllers.RoutesController",
+    "Method": "CreateRoute",
+    "RelativePath": "api/events/{eventId}/routes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "eventId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "RaceDay.API.DTOs.CreateRouteDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "RaceDay.API.Controllers.EventsController",
     "Method": "GetEvent",
     "RelativePath": "api/Events/{id}",
@@ -470,6 +507,59 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RaceDay.API.Controllers.RoutesController",
+    "Method": "GetRoute",
+    "RelativePath": "api/routes/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RaceDay.API.Controllers.RoutesController",
+    "Method": "UpdateRoute",
+    "RelativePath": "api/routes/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "RaceDay.API.DTOs.UpdateRouteDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RaceDay.API.Controllers.RoutesController",
+    "Method": "DeleteRoute",
+    "RelativePath": "api/routes/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   }
 ]

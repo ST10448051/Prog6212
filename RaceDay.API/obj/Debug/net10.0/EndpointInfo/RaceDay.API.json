@@ -762,6 +762,153 @@
           }
         }
       }
+    },
+    "/api/events/{eventId}/routes": {
+      "get": {
+        "tags": [
+          "Routes"
+        ],
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Routes"
+        ],
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRouteDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRouteDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRouteDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/routes/{id}": {
+      "get": {
+        "tags": [
+          "Routes"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Routes"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateRouteDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateRouteDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateRouteDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Routes"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -912,6 +1059,46 @@
             "minLength": 1,
             "pattern": "^(Finished|DidNotFinish|Disqualified)$",
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateRouteDTO": {
+        "required": [
+          "routeName"
+        ],
+        "type": "object",
+        "properties": {
+          "routeName": {
+            "maxLength": 150,
+            "minLength": 0,
+            "type": "string"
+          },
+          "distanceKm": {
+            "maximum": 10000,
+            "minimum": 0.01,
+            "type": "number",
+            "format": "double"
+          },
+          "elevationGainM": {
+            "maximum": 100000,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "routeDescription": {
+            "maxLength": 2000,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "mapURL": {
+            "maxLength": 1000,
+            "minLength": 0,
+            "type": "string",
+            "format": "uri",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1117,6 +1304,46 @@
           }
         },
         "additionalProperties": false
+      },
+      "UpdateRouteDTO": {
+        "required": [
+          "routeName"
+        ],
+        "type": "object",
+        "properties": {
+          "routeName": {
+            "maxLength": 150,
+            "minLength": 0,
+            "type": "string"
+          },
+          "distanceKm": {
+            "maximum": 10000,
+            "minimum": 0.01,
+            "type": "number",
+            "format": "double"
+          },
+          "elevationGainM": {
+            "maximum": 100000,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "routeDescription": {
+            "maxLength": 2000,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "mapURL": {
+            "maxLength": 1000,
+            "minLength": 0,
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       }
     }
   },
@@ -1144,6 +1371,9 @@
     },
     {
       "name": "Results"
+    },
+    {
+      "name": "Routes"
     }
   ]
 }
