@@ -45,26 +45,54 @@ public class RaceDayDbContext : DbContext
                 .IsUnique().HasDatabaseName("UQ_Users_Email");
         });
 
+
         modelBuilder.Entity<Event>(e =>
         {
             e.ToTable("Events", t =>
             {
-                t.HasCheckConstraint("CK_Events_Distance", "[DistanceKm] > 0");
-                t.HasCheckConstraint("CK_Events_EntryFee", "[EntryFee] >= 0");
+                t.HasCheckConstraint("CK_Events_Distance",
+                    "[DistanceKm] > 0");
+
+                t.HasCheckConstraint("CK_Events_EntryFee",
+                    "[EntryFee] >= 0");
+
                 t.HasCheckConstraint("CK_Events_Status",
                     "[Status] IN ('Draft','Upcoming','Open','Closed','Completed','Cancelled')");
+
+                t.HasCheckConstraint("CK_Events_EventType",
+                    "[EventType] IN ('Run','Walk','Cycle')");
             });
 
             e.HasKey(x => x.EventID).HasName("PK_Events");
-            e.Property(x => x.EventName).HasMaxLength(200).IsRequired();
-            e.Property(x => x.Description).HasMaxLength(1000);
-            e.Property(x => x.EventDate).HasColumnType("date");
-            e.Property(x => x.Location).HasMaxLength(200).IsRequired();
-            e.Property(x => x.DistanceKm).HasColumnType("decimal(6,2)");
-            e.Property(x => x.EntryFee).HasColumnType("decimal(10,2)")
+
+            e.Property(x => x.EventName)
+                .HasMaxLength(200).IsRequired();
+
+            e.Property(x => x.Description)
+                .HasMaxLength(1000);
+
+            e.Property(x => x.EventDate)
+                .HasColumnType("date");
+
+            e.Property(x => x.Location)
+                .HasMaxLength(200).IsRequired();
+
+            e.Property(x => x.DistanceKm)
+                .HasColumnType("decimal(6,2)");
+
+            e.Property(x => x.EntryFee)
+                .HasColumnType("decimal(10,2)")
                 .HasDefaultValue(0m);
-            e.Property(x => x.Status).HasMaxLength(30)
+
+            e.Property(x => x.Status)
+                .HasMaxLength(30)
                 .HasDefaultValue("Upcoming");
+
+            e.Property(x => x.EventType)
+                .HasMaxLength(20)
+                .IsRequired()
+                .HasDefaultValue("Run");
+
             e.Property(x => x.CreatedAt)
                 .HasDefaultValueSql("SYSUTCDATETIME()");
 
@@ -74,6 +102,7 @@ public class RaceDayDbContext : DbContext
                 .OnDelete(DeleteBehavior.NoAction)
                 .HasConstraintName("FK_Events_Organiser");
         });
+
 
         modelBuilder.Entity<Category>(e =>
         {

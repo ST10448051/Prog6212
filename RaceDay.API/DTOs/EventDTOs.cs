@@ -26,6 +26,12 @@ public class CreateEventDTO
 
     [Required]
     public string Status { get; set; } = "Upcoming";
+
+    [Required]
+    [RegularExpression("^(Run|Walk|Cycle)$",
+    ErrorMessage = "Event type must be Run, Walk, or Cycle.")]
+    public string EventType { get; set; } = "Run";
+
 }
 
 public class UpdateEventDTO : CreateEventDTO

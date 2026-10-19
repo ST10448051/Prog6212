@@ -37,7 +37,8 @@ public class EventsController : ControllerBase
                 e.Location,
                 e.DistanceKm,
                 e.EntryFee,
-                e.Status
+                e.Status,
+                e.EventType
             })
             .ToListAsync();
 
@@ -64,7 +65,8 @@ public class EventsController : ControllerBase
                 e.Location,
                 e.DistanceKm,
                 e.EntryFee,
-                e.Status
+                e.Status,
+                e.EventType
             })
             .FirstOrDefaultAsync();
 
@@ -111,7 +113,8 @@ public class EventsController : ControllerBase
             Location = dto.Location,
             DistanceKm = dto.DistanceKm,
             EntryFee = dto.EntryFee,
-            Status = dto.Status
+            Status = dto.Status,
+            EventType = dto.EventType
         };
 
         _context.Events.Add(raceEvent);
@@ -168,6 +171,7 @@ public class EventsController : ControllerBase
         raceEvent.DistanceKm = dto.DistanceKm;
         raceEvent.EntryFee = dto.EntryFee;
         raceEvent.Status = dto.Status;
+        raceEvent.EventType = dto.EventType;
 
         await _context.SaveChangesAsync();
 

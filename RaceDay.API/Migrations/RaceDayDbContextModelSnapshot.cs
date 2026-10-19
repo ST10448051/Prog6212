@@ -123,6 +123,13 @@ namespace RaceDay.API.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<string>("EventType")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasDefaultValue("Run");
+
                     b.Property<string>("Location")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -148,6 +155,8 @@ namespace RaceDay.API.Migrations
                             t.HasCheckConstraint("CK_Events_Distance", "[DistanceKm] > 0");
 
                             t.HasCheckConstraint("CK_Events_EntryFee", "[EntryFee] >= 0");
+
+                            t.HasCheckConstraint("CK_Events_EventType", "[EventType] IN ('Run','Walk','Cycle')");
 
                             t.HasCheckConstraint("CK_Events_Status", "[Status] IN ('Draft','Upcoming','Open','Closed','Completed','Cancelled')");
                         });

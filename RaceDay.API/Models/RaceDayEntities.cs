@@ -27,7 +27,7 @@ public class Event
     public decimal EntryFee { get; set; }
     public string Status { get; set; } = "Upcoming";
     public DateTime CreatedAt { get; set; }
-
+    public string EventType { get; set; } = "Run";
     public User Organiser { get; set; } = null!;
     public ICollection<EventCategory> EventCategories { get; set; } = new List<EventCategory>();
     public Route? Route { get; set; }

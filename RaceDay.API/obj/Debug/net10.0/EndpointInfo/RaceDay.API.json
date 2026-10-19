@@ -211,6 +211,7 @@
         "required": [
           "eventDate",
           "eventName",
+          "eventType",
           "location",
           "status"
         ],
@@ -250,6 +251,11 @@
           },
           "status": {
             "minLength": 1,
+            "type": "string"
+          },
+          "eventType": {
+            "minLength": 1,
+            "pattern": "^(Run|Walk|Cycle)$",
             "type": "string"
           }
         },
@@ -315,6 +321,7 @@
         "required": [
           "eventDate",
           "eventName",
+          "eventType",
           "location",
           "status"
         ],
@@ -354,6 +361,11 @@
           },
           "status": {
             "minLength": 1,
+            "type": "string"
+          },
+          "eventType": {
+            "minLength": 1,
+            "pattern": "^(Run|Walk|Cycle)$",
             "type": "string"
           }
         },
