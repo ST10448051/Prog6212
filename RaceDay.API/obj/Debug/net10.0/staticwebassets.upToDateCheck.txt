@@ -1,0 +1,2 @@
+wwwroot\swagger\csrf.js
+C:\Users\emeris\source\repos\RaceDay\RaceDay.API\wwwroot\swagger\csrf.js

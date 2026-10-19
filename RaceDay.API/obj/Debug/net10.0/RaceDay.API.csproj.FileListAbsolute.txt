@@ -169,3 +169,5 @@ C:\Users\emeris\source\repos\RaceDay\RaceDay.API\obj\Debug\net10.0\RaceDay.API.g
 C:\Users\emeris\source\repos\RaceDay\RaceDay.API\obj\Debug\net10.0\ref\RaceDay.API.dll
 C:\Users\emeris\source\repos\RaceDay\RaceDay.API\bin\Debug\net10.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\emeris\source\repos\RaceDay\RaceDay.API\bin\Debug\net10.0\runtimes\win\lib\net10.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\emeris\source\repos\RaceDay\RaceDay.API\bin\Debug\net10.0\RaceDay.API.staticwebassets.runtime.json
+C:\Users\emeris\source\repos\RaceDay\RaceDay.API\obj\Debug\net10.0\compressed\rvyoz3ced2-{0}-4xccxsu51s-4xccxsu51s.gz

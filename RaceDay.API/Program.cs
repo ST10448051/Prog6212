@@ -61,14 +61,19 @@ builder.Services.AddAntiforgery(options =>
 });
 
 var app = builder.Build();
+app.UseStaticFiles();
 
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+
+    app.UseSwaggerUI(options =>
+    {
+        options.InjectJavascript("/swagger/csrf.js");
+    });
 }
 
-    // HTTPS must be working before testing authenticated requests.
+// HTTPS must be working before testing authenticated requests.
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
