@@ -571,6 +571,156 @@
           }
         }
       }
+    },
+    "/api/Results/event/{eventId}": {
+      "get": {
+        "tags": [
+          "Results"
+        ],
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Results/my": {
+      "get": {
+        "tags": [
+          "Results"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Results/{id}": {
+      "get": {
+        "tags": [
+          "Results"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Results"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateResultDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateResultDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateResultDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Results"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Results": {
+      "post": {
+        "tags": [
+          "Results"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateResultDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateResultDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateResultDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -687,6 +837,39 @@
           "eventType": {
             "minLength": 1,
             "pattern": "^(Run|Walk|Cycle)$",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateResultDTO": {
+        "required": [
+          "enrolmentID",
+          "resultStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "enrolmentID": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "finishTime": {
+            "type": "string",
+            "format": "date-span",
+            "nullable": true
+          },
+          "position": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "resultStatus": {
+            "minLength": 1,
+            "pattern": "^(Finished|DidNotFinish|Disqualified)$",
             "type": "string"
           }
         },
@@ -840,6 +1023,32 @@
           }
         },
         "additionalProperties": false
+      },
+      "UpdateResultDTO": {
+        "required": [
+          "resultStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "finishTime": {
+            "type": "string",
+            "format": "date-span",
+            "nullable": true
+          },
+          "position": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "resultStatus": {
+            "minLength": 1,
+            "pattern": "^(Finished|DidNotFinish|Disqualified)$",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
       }
     }
   },
@@ -861,6 +1070,9 @@
     },
     {
       "name": "Events"
+    },
+    {
+      "name": "Results"
     }
   ]
 }
