@@ -18,7 +18,8 @@ public class RaceDayDbContext : DbContext
     public DbSet<EventCategory> EventCategories => Set<EventCategory>();
     public DbSet<Enrolment> Enrolments => Set<Enrolment>();
     public DbSet<Result> Results => Set<Result>();
-    public DbSet<Route> Routes => Set<Route>();
+    public DbSet<RaceDay.API.Models.Route> Routes
+    => Set<RaceDay.API.Models.Route>();
     public DbSet<WeatherReport> WeatherReports => Set<WeatherReport>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -172,7 +173,7 @@ public class RaceDayDbContext : DbContext
                 .HasConstraintName("FK_Results_Enrolment");
         });
 
-        modelBuilder.Entity<Route>(e =>
+        modelBuilder.Entity<RaceDay.API.Models.Route>(e =>
         {
             e.ToTable("Routes", t =>
             {
@@ -192,7 +193,7 @@ public class RaceDayDbContext : DbContext
 
             e.HasOne(x => x.Event)
                 .WithOne(x => x.Route)
-                .HasForeignKey<Route>(x => x.EventID)
+                .HasForeignKey<RaceDay.API.Models.Route>(x => x.EventID)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK_Routes_Event");
         });
