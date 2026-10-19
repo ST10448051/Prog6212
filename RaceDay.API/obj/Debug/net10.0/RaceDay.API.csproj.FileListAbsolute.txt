@@ -167,3 +167,5 @@ C:\Users\emeris\source\repos\RaceDay\RaceDay.API\obj\Debug\net10.0\refint\RaceDa
 C:\Users\emeris\source\repos\RaceDay\RaceDay.API\obj\Debug\net10.0\RaceDay.API.pdb
 C:\Users\emeris\source\repos\RaceDay\RaceDay.API\obj\Debug\net10.0\RaceDay.API.genruntimeconfig.cache
 C:\Users\emeris\source\repos\RaceDay\RaceDay.API\obj\Debug\net10.0\ref\RaceDay.API.dll
+C:\Users\emeris\source\repos\RaceDay\RaceDay.API\bin\Debug\net10.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\emeris\source\repos\RaceDay\RaceDay.API\bin\Debug\net10.0\runtimes\win\lib\net10.0\System.Security.Cryptography.Pkcs.dll
